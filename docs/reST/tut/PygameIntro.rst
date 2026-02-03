@@ -70,27 +70,27 @@ along, and a complete breakdown follows.
    import sys, pygame
    pygame.init()
    
-   size = width, height = 320, 240
+   size = width, height = 320, 240                        # line 04
    speed = [2, 2]
    black = 0, 0, 0
    
-   screen = pygame.display.set_mode(size)
+   screen = pygame.display.set_mode(size)                 # line 08
    
-   ball = pygame.image.load("intro_ball.gif")
+   ball = pygame.image.load("intro_ball.gif")             # line 10
    ballrect = ball.get_rect()
    
-   while True:
+   while True:                                            # line 13
        for event in pygame.event.get():
            if event.type == pygame.QUIT: sys.exit()
    
-       ballrect = ballrect.move(speed)
-       if ballrect.left < 0 or ballrect.right > width:
+       ballrect = ballrect.move(speed)                    # line 17
+       if ballrect.left < 0 or ballrect.right > width:    # line 18
            speed[0] = -speed[0]
        if ballrect.top < 0 or ballrect.bottom > height:
-           speed[1] = -speed[1]
+           speed[1] = -speed[1]                           # line 21
        
-       screen.fill("black")
-       screen.blit(ball, ballrect)
+       screen.fill("black")                               # line 23
+       screen.blit(ball, ballrect)                        # line 24
        pygame.display.flip()
 
 This is as simple as you can get for a bouncing animation.
